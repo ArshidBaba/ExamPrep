@@ -1,0 +1,7 @@
+/Exam
+/Exam/Lib
+__pycache__/
+**/__pycache__/  
+# *.pyc
+quiz/migrations
+*/_init_.py
