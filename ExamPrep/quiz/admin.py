@@ -1,3 +1,10 @@
 from django.contrib import admin
+from quiz.models import Questions, Answers
 
-# Register your models here.
+class QuestionAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Questions, QuestionAdmin)
+
+class AnswerAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Answers, AnswerAdmin)
