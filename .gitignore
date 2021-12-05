@@ -1,5 +1,7 @@
 /Exam
 /Exam/Lib
+/ExamPrep/quiz/migrations
+/ExamPrep/db.sqlite3
 __pycache__/
 **/__pycache__/  
 # *.pyc
