@@ -1,10 +1,14 @@
 from django.contrib import admin
-from quiz.models import Questions, Answers
+from . import models
+
+class AnswerAdmin(admin.TabularInline):
+    model = models.Answers
+# admin.site.register(models.Answers, AnswerAdmin)  
 
 class QuestionAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(Questions, QuestionAdmin)
+    inlines = [
+        AnswerAdmin,
+    ]
+admin.site.register(models.Questions, QuestionAdmin)
 
-class AnswerAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(Answers, AnswerAdmin)
+

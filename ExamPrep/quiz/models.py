@@ -11,18 +11,23 @@ class Questions(models.Model):
         verbose_name_plural = _("Questions")
         ordering = ['id']
          
-    q_id = models.IntegerField(default=0,  verbose_name="Question No.")
+    TYPE = (
+        (0, _("Multiple Choice")),
+    )
+
+    # q_id = models.IntegerField(default=0,  verbose_name="Question No.")
+    # technique = models.IntegerField(choices=TYPE, default=0, verbose_name=_("Type of Question"))
     question = models.CharField(max_length=255, verbose_name="Question")
-    # title = models.CharField(default="Question", max_length=255, verbose_name=_("Title"))
-    title = models.CharField(max_length=255, verbose_name=_("Title"))
-    correct_option = models.IntegerField(verbose_name="Answer")
+    title = models.CharField(default="Question", max_length=255, verbose_name=_("Title"))
+    # title = models.CharField(max_length=255, verbose_name=_("Title"))
+    # correct_option = models.IntegerField(verbose_name="Answer")
     subject = models.CharField(max_length=255, verbose_name="Subject")
     exam_name = models.CharField(max_length=255, verbose_name="Exam")
     exam_year = models.IntegerField(verbose_name="Year")
     date = models.DateTimeField(auto_now=True, verbose_name="Date Created")
 
-    def __str__(self):
-        return self.title   
+    # def __str__(self):
+    #     return self.title   
 
 class Answers(models.Model):
     class Meta:
@@ -31,9 +36,9 @@ class Answers(models.Model):
         ordering = ['id']
          
     question = models.ForeignKey(Questions, related_name='answer', on_delete=models.DO_NOTHING)
-    title = models.CharField(null=True, max_length=255, verbose_name=_("Title"))
+    # title = models.CharField(null=True, max_length=255, verbose_name=_("Title"))
     answer_text = models.CharField(max_length=255, verbose_name="Answer")
     is_right = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.title
+    # def __str__(self):
+    #     return self.title
